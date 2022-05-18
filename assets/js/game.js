@@ -2,16 +2,15 @@ var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 
-// You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
-
-var enemyName = "Roborto";
+// enemy attributes
+var enemyNames = ["Roborto", "Amy Android", "Robo Trouble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+// fight or skip prompt
 var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
-var fight = function() {
+var fight = function(enemyName) {
   // if player choses to fight, then fight
 if (promptFight === "fight" || promptFight === "FIGHT") {
     // remove enemy's health by subtracting the amount set in the playerAttack variable
@@ -61,4 +60,6 @@ else {
   }
 }
 
-fight();
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
