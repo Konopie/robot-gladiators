@@ -10,27 +10,34 @@ var randomNumber = function(min, max) {
 var shop = function() {
    // ask player what they'd like to do
    var shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
   );
-  shopOptionPrompt = parseInt(shopOptionPrompt);
-  // use switch case to carry out action
-  switch (shopOptionPrompt) {
-    case 1:
-      playerInfo.refillHealth();
-      break;
-    case 2:
-      playerInfo.upgradeAttack();
-      break;
-    case 3:
-      window.alert("Leaving the store.");
-      break;
-    default:
-      window.alert("You did not pick a valid option. Try again.");
-      shop();
-      break;
-  }
-}
+  // use switch to carry out action
+switch (shopOptionPrompt) {
+  case "REFILL":
+  case "refill":
+    playerInfo.refillHealth;
+    shop();
+  break;
+  case "UPGRADE":
+  case "upgrade":
+    playerInfo.upgradeAttack;
+    shop();
+  break;
+  case "LEAVE":
+  case "leave":
+    window.alert("Leaving the store.");
 
+    // do nothing, so function will end
+    break;
+  default:
+    window.alert("You did not pick a valid option. Try again.");
+
+    // call shop() again to force player to pick a valid option
+    shop();
+    break;
+  }
+};
 
 var fightOrSkip = function() {
   // ask player if they'd like to fight or skip using fightOrSkip function
@@ -65,8 +72,8 @@ var fightOrSkip = function() {
 
 var fight = function(enemy) {
   while (playerInfo.health > 0 && enemy.health > 0) {
-    // ask player if theyd like to fight or skip
-    if (fightOrSkip()); {
+    // ask player if they'd like to fight or skip using fightOrSkip function
+    if (fightOrSkip()) {
       // if true, leave fight by breaking loop
       break;
     }
